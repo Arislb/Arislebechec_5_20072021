@@ -8,6 +8,7 @@ fetch('http://localhost:3000/api/cameras')
     console.log(data);
 let name = data[0].name;
 console.log(name);
+
 let contener = document.querySelector(".test")
 let div = document.createElement("div");
 div.innerHTML = `<p>Je suis la div créer ${name} </p>`;
