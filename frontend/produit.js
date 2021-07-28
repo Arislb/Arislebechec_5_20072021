@@ -2,12 +2,12 @@
 let categorie ="cameras";
 //recupérer l'ID d'un produit
 const urlid = window.location.search ;
-const id = urlid.slice(1) ;
-console.log(id);
+const idproduit = urlid.slice(1) ;
+console.log(idproduit);
 
 
 
-fetch('http://localhost:3000/api/' + categorie+"/"+id)
+fetch('http://localhost:3000/api/' + categorie+"/"+idproduit)
 .then(function(reponse){
     return reponse.json();
 })
@@ -54,11 +54,11 @@ console.log(btn_envoyerpanier);
     const  idselection = document.querySelector(".form-select");
     const choixoption = idselection.value;
     console.log(choixoption);
-    
+
     //Récupération des valeurs lié au produit pour le panier.
         let ficheproduit = {
             nomproduit: data.name,
-            id_produit: id,
+            id_produit: idproduit,
             optionproduit: choixoption,
             quantite: 1,
             prix: data.price /100
