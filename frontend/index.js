@@ -15,8 +15,8 @@ fetch('http://localhost:3000/api/' + categorie)
         let description = data[i].description; 
         let price = data[i].price / 100;
         let idproduit = data[i]._id;
-        const contener = document.querySelector("#allproduit")
-        contener.innerHTML += `
+        const contenuHtml = document.querySelector("#allproduit")
+        contenuHtml.innerHTML += `
                         <div class="col">
                                 <div class="card">
                                     <img src=${imageUrl}>

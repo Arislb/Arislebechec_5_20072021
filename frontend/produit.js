@@ -26,7 +26,7 @@ fetch('http://localhost:3000/api/' + categorie+"/"+idproduit)
 // Boucle pour afficher les options
     for (let i = 0; i < options.length; i++) {
         let option = options[i];
-        let numoption = i+1;
+        let numoption = option ;
         let positionopt = document.querySelector("#leproduit select");
         positionopt.innerHTML +=`
         <option value="${numoption}">${option}</option>
@@ -38,9 +38,9 @@ fetch('http://localhost:3000/api/' + categorie+"/"+idproduit)
 // Recupération des informations selectionnée a envoyer au panier.
 
 //selection de la liste des options du produit.
-const  idselection = document.querySelector(".form-select");
-const choixoption = idselection.value;
-console.log(choixoption);
+//const  idselection = document.querySelector(".form-select");
+//const choixoption = idselection.value;
+//console.log(choixoption);
 
 //recuparation Bouton Ajouter au panier  ! 
 
@@ -53,7 +53,7 @@ console.log(btn_envoyerpanier);
     //selection de la liste des options du produit.
     const  idselection = document.querySelector(".form-select");
     const choixoption = idselection.value;
-    console.log(choixoption);
+    console.log("JE SUIS ICI"+ choixoption);
 
     //Récupération des valeurs lié au produit pour le panier.
         let ficheproduit = {
