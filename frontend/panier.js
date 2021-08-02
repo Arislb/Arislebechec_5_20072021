@@ -51,7 +51,7 @@ if (produitenregistredanslocalstorage === null) {
     contenuHtml2.innerHTML = structureproduitpanier +`
     <tr>
                             <th scope="row">Prix total : </th>
-                            <th colspan="2">100</th>
+                            <th colspan="2" class="prix-total"></th>
                             <td colspan="2"><button class="btn-supprimer-all">Vider le panier</button></td>
                         </tr>
     `;
@@ -78,8 +78,25 @@ btn_supprimer_all.addEventListener("click", (e)=>{
     //.removeItem pour vider le local storage 
     localStorage.removeItem("danspanier");
     //alerte pour actualiser la page
-    alert("Le panier a bien été vidé");
-    window.location.href ="panier.html";
+    window.location.reload() ;
 })
 
+
+// ----------------------------------------Somme total des produits du panier-----------------------------
+
+//Declaration des variables pour les prix present dans le panier
+let sommedupanier = [];
+
+//recuperer les prix du panier;
+for (let s = 0; s < produitenregistredanslocalstorage.length; s++) {
+    let prixproduitdupanier = produitenregistredanslocalstorage[s].prix;
+    //Mettre les prix recuprer dans le tableau/variable "Sommedupanier"
+    sommedupanier.push(prixproduitdupanier);
+    
+}
+//Addtionner les pris qu'il y a dans le tableau"sommedupanier" avec la méthode .reducer
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+const Prixtotal = sommedupanier.reduce(reducer,0);
+
+document.querySelector(".prix-total").textContent = Prixtotal;
 })
