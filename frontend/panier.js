@@ -40,7 +40,7 @@ if (produitenregistredanslocalstorage === null) {
         <td>${produitenregistredanslocalstorage[k].nomproduit}</td>
         <td>${produitenregistredanslocalstorage[k].optionproduit}</td>
         <td>${produitenregistredanslocalstorage[k].prix}</td>
-        <td><button class="btn-supprimer">Supprimer</button></td>
+        <td></td>
     </tr>
         
         `;
