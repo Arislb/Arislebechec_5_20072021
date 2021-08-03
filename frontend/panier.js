@@ -99,4 +99,34 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
 const Prixtotal = sommedupanier.reduce(reducer,0);
 
 document.querySelector(".prix-total").textContent = Prixtotal;
+
+
+//-------------------------------Gestion formulaire---------------------------------------
+
+//-------------------Bouton de commande-------------------
+const btn_commande = document.querySelector(".btn-commande");
+
+btn_commande.addEventListener("click", (e)=>{
+    e.preventDefault;
+
+//variable pour les formulaires
+    let firstname = document.querySelector("#fname").value;
+    console.log(firstname);
+    let lastname = document.querySelector("#lname").value;
+    let adress = document.querySelector("#inputadresse").value;
+    let city = document.querySelector("#inputville").value;
+    /* let email = document.querySelector("").value; */
+
+    //recuperation des valeur du formulaire.
+    const contact = {
+        firstName: firstname,
+        lastName: lastname,
+        address: adress,
+        city: city,
+        email: document.querySelector("#inputmail").value,
+        }
+        console.log(contact);
+})
+
+
 })
