@@ -140,7 +140,7 @@ btn_commande.addEventListener("click", (e)=>{
 
 //fonction regex qui controle le prenom nom et ville.
 const regexPNV = (value) =>{
-    return /^[A-Za-z]{3,20}$/.test(value);
+    return /^[A-Za-z\s-]{3,20}$/.test(value);
 };
 // fonction regex qui controle lemail
 const regexmail = (value) =>{
