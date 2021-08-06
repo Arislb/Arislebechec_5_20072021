@@ -226,6 +226,44 @@ function control_adress(){
 
 if (control_name() && control_lastname() && control_city() && control_mail() && control_adress()) {
     localStorage.setItem("bcommande", JSON.stringify(bcommande));
+
+//-----Envois de la commande dans backend.
+
+//recupération des ID produit pour un tableau.
+produitIdCommande = [];
+for (let i = 0; i < produitenregistredanslocalstorage.length; i++) {
+    let produitId = produitenregistredanslocalstorage[i].id_produit;
+    //Mettre les id recuprer dans le tableau/variable "produitIdCommande"
+    produitIdCommande.push(produitId);
+    
+}
+
+
+let commandback = {
+    products: produitIdCommande,
+    contact: contact,
+}
+
+fetch("http://localhost:3000/api/"+categorie+"/order",{
+    method: "POST",
+    body: JSON.stringify(commandback),
+    headers: {
+        "Content-Type":"application/json"
+    }
+})
+/*.then ((breponse)=>{
+
+}) */
+.then(function(breponse){
+    return breponse.json();
+})
+.then(function(bdata){
+    console.log(bdata);
+    localStorage.setItem("ID_order", JSON.stringify(bdata));
+})
+
+window.location.href = "confirmation.html" ;
+
 }else{
     alert("Veuillez bien remplir le formulaire")
 }
