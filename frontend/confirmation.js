@@ -2,8 +2,8 @@
 let bilanCommande = JSON.parse(localStorage.getItem("bcommande"))
 let idCommande = JSON.parse(localStorage.getItem("ID_order"))
 
-console.log(bilanCommande);
-console.log(idCommande.orderId);
+//console.log(bilanCommande);
+//console.log(idCommande.orderId);
 
 //---------------------Visuel de la commande dans confirmation---------------------
 
@@ -17,7 +17,7 @@ let lesproduits= bilanCommande.produitenregistredanslocalstorage;
 console.log(lesproduits);
 
 for (let i = 0; i < lesproduits.length; i++) {
-    contenuHtml.innerHTML +=`<div> <p>-test ${lesproduits[i].nomproduit}</p>
+    contenuHtml.innerHTML +=`<div> <p>-${lesproduits[i].nomproduit}</p>
     </div>`
 }
 

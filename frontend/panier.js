@@ -107,7 +107,7 @@ document.querySelector(".prix-total").textContent = prixtotal;
 const btn_commande = document.querySelector(".btn-commande");
 
 btn_commande.addEventListener("click", (e)=>{
-    e.preventDefault;
+    //e.preventDefault;
 
 //variable pour les formulaires
     let firstname = document.querySelector("#fname").value;
@@ -260,9 +260,11 @@ fetch("http://localhost:3000/api/"+categorie+"/order",{
 .then(function(bdata){
     console.log(bdata);
     localStorage.setItem("ID_order", JSON.stringify(bdata));
+    window.location.href = "confirmation.html" ;
 })
 
-window.location.href = "confirmation.html" ;
+
+
 
 }else{
     alert("Veuillez bien remplir le formulaire")
