@@ -260,7 +260,8 @@ fetch("http://localhost:3000/api/"+categorie+"/order",{
 .then(function(bdata){
     console.log(bdata);
     localStorage.setItem("ID_order", JSON.stringify(bdata));
-    window.location.href = "confirmation.html" ;
+    localStorage.removeItem("danspanier");
+    window.location.href = "confirmation.html";
 })
 
 
