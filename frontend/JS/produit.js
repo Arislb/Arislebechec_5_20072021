@@ -85,9 +85,9 @@ const ajoutleproduitlocalstorage = () => {
 const popapresachat = () =>{
     if (window.confirm(`${data.name} option :${choixoption} a été rajouté au panier.
     Voulez-vous aller au panier ?`)) {
-        window.location.href = "index.html"
+        window.location.href = "panier.html"
     } else {
-        window.location.href = "index.html"
+        window.location.href = "#"
     }
 }
 
