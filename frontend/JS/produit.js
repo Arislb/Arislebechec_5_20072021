@@ -22,7 +22,7 @@ fetch('http://localhost:3000/api/' + categorie+"/"+idproduit)
     document.querySelector(".price").textContent = data.price / 100 + "€";
 //Déclaration d'une variable pour le tableau des optiond<;
     let options = data.lenses ;
-    console.log(options);
+
 // Boucle pour afficher les options
     for (let i = 0; i < options.length; i++) {
         let option = options[i];
@@ -40,12 +40,11 @@ fetch('http://localhost:3000/api/' + categorie+"/"+idproduit)
 //selection de la liste des options du produit.
 //const  idselection = document.querySelector(".form-select");
 //const choixoption = idselection.value;
-//console.log(choixoption);
+
 
 //recuparation Bouton Ajouter au panier  ! 
 
 const btn_envoyerpanier = document.querySelector("#leproduit button");
-console.log(btn_envoyerpanier);
 
 //Ecouter le bouton pour envoyer au panier ----------------------------------Addeventlistener du bouton ajouter au panier.
     btn_envoyerpanier.addEventListener("click", (event)=>{
@@ -53,7 +52,6 @@ console.log(btn_envoyerpanier);
     //selection de la liste des options du produit.
     const  idselection = document.querySelector(".form-select");
     const choixoption = idselection.value;
-    console.log("JE SUIS ICI"+ choixoption);
 
     //Récupération des valeurs lié au produit pour le panier.
         let ficheproduit = {
@@ -62,8 +60,7 @@ console.log(btn_envoyerpanier);
             optionproduit: choixoption,
             quantite: 1,
             prix: data.price /100
-        }
-        console.log(ficheproduit);
+        };
 
 
 //-----------------------------------------Local Storage----------------------------------

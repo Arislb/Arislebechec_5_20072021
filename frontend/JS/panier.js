@@ -16,7 +16,7 @@ let produitenregistredanslocalstorage =  JSON.parse(localStorage.getItem("danspa
 
 // Emplacement du code HTML injecter
 const contenuHtml2 = document.querySelector("#contenupanier");
-console.log(contenuHtml2);
+
 
 let structureproduitpanier = [];
 //Si le panier est vide: Aucun produit dans le panier.
@@ -111,7 +111,6 @@ btn_commande.addEventListener("click", (e)=>{
 
 //variable pour les formulaires
     let firstname = document.querySelector("#fname").value;
-    console.log(firstname);
     let lastname = document.querySelector("#lname").value;
     let adress = document.querySelector("#inputadresse").value;
     let city = document.querySelector("#inputville").value;
@@ -124,15 +123,13 @@ btn_commande.addEventListener("click", (e)=>{
         address: adress,
         city: city,
         email: document.querySelector("#inputmail").value,
-        }
-        console.log("ici le contact"+contact);
+        };
 
     const bcommande = {
         produitenregistredanslocalstorage,
         prixtotal,
         contact,
-    }
-    console.log(bcommande);
+    };
 
 //-----------------------------------------------VALIDATION DU FORMULAIRE------------------------------------------------
 
@@ -160,26 +157,21 @@ const pnvinval =(value)=>{
 function control_name() {
     const valfname = contact.firstName;
     if(regexPNV(valfname)){
-    console.log(valfname);
     return true;
     }else{
     
     pnvinval("Nom")
-    console.log("ICIC FAUX prénom");
     return false;
     }
     };
 
 function control_lastname() {
     const vallname = contact.lastName;
-    console.log(vallname);
     if(regexPNV(vallname)){
-        console.log(vallname);
     return true;
     }else{
    
     pnvinval("Prenom")
-    console.log("ICIC FAUX nom");
     return false;
     }
     };
@@ -187,12 +179,10 @@ function control_lastname() {
 function control_city(){
     const valcity = contact.city;
     if(regexPNV(valcity)){
-    console.log(valcity);
     return true;
     }else{
     
     pnvinval("Ville")
-    console.log("ICIC FAUXville");
     return false;
     }
 };
@@ -200,24 +190,19 @@ function control_city(){
 function control_mail(){
     const valmail = contact.email;
     if(regexmail(valmail)){
-        console.log(valmail);
         return true;
         }else{
         alert("L'email n'est pas valide")
-        console.log("ICIC FAUX mail");
         return false;
         }
 };
 
 function control_adress(){
     const valadress = contact.address;
-    console.log(valadress);
     if(regexadress(valadress)){
-        console.log(valadress);
         return true;
         }else{
         alert("L'adresse n'est pas valide")
-        console.log("ICIC FAUX adress");
         return false;
         }
 };
