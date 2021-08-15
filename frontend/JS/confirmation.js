@@ -17,7 +17,7 @@ let lesproduits= bilanCommande.produitenregistredanslocalstorage;
 console.log(lesproduits);
 
 for (let i = 0; i < lesproduits.length; i++) {
-    contenuHtml.innerHTML +=`<div> <p>-${lesproduits[i].nomproduit}</p>
+    contenuHtml.innerHTML +=`<div> <p>- ${lesproduits[i].nomproduit}, lentille :${lesproduits[i].optionproduit}  |  ${lesproduits[i].prix}€</p>
     </div>`
 }
 
