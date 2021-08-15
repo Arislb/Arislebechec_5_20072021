@@ -8,9 +8,9 @@ fetch('http://localhost:3000/api/' + categorie)
     console.log(data);
 
 
-//Delcaration de la variable "produitenregistredanslocalstorage" dans laquelle on trouve les key/value qui sont dans le localstorage.
+//Delcaration de la variable "prodAddLstorage" dans laquelle on trouve les key/value qui sont dans le localstorage.
 //++JSON.parse convertie les données au format JSON qui sont dans le local storage en objet JS.
-let produitenregistredanslocalstorage =  JSON.parse(localStorage.getItem("danspanier"))
+let prodAddLstorage =  JSON.parse(localStorage.getItem("danspanier"))
 
 //--------------------------------------------VISUEL DES PRODUIT DANS LE PANIER------------------------
 
@@ -20,7 +20,7 @@ const contenuHtml2 = document.querySelector("#contenupanier");
 
 let structureproduitpanier = [];
 //Si le panier est vide: Aucun produit dans le panier.
-if (produitenregistredanslocalstorage === null) {
+if (prodAddLstorage === null) {
     const paniervide =`
     <tr>
     <th colspan="5">Aucun produit</th>
@@ -32,14 +32,14 @@ if (produitenregistredanslocalstorage === null) {
     //let structureproduitpanier = [];
     
 
-    for (let k = 0; k < produitenregistredanslocalstorage.length; k++) {
-        console.log(produitenregistredanslocalstorage);
+    for (let k = 0; k < prodAddLstorage.length; k++) {
+        console.log(prodAddLstorage);
         
         structureproduitpanier = structureproduitpanier +` <tr>
         <th scope="row">${[k+1]}</th>
-        <td>${produitenregistredanslocalstorage[k].nomproduit}</td>
-        <td>${produitenregistredanslocalstorage[k].optionproduit}</td>
-        <td>${produitenregistredanslocalstorage[k].prix}</td>
+        <td>${prodAddLstorage[k].nomproduit}</td>
+        <td>${prodAddLstorage[k].optionproduit}</td>
+        <td>${prodAddLstorage[k].prix}</td>
         <td></td>
     </tr>
         
@@ -88,8 +88,8 @@ btn_supprimer_all.addEventListener("click", (e)=>{
 let sommedupanier = [];
 
 //recuperer les prix du panier;
-for (let s = 0; s < produitenregistredanslocalstorage.length; s++) {
-    let prixproduitdupanier = produitenregistredanslocalstorage[s].prix;
+for (let s = 0; s < prodAddLstorage.length; s++) {
+    let prixproduitdupanier = prodAddLstorage[s].prix;
     //Mettre les prix recuprer dans le tableau/variable "Sommedupanier"
     sommedupanier.push(prixproduitdupanier);
     
@@ -126,7 +126,7 @@ btn_commande.addEventListener("click", (e)=>{
         };
 
     const bcommande = {
-        produitenregistredanslocalstorage,
+        prodAddLstorage,
         prixtotal,
         contact,
     };
@@ -216,8 +216,8 @@ if (control_name() && control_lastname() && control_city() && control_mail() && 
 
 //recupération des ID produit pour un tableau.
 produitIdCommande = [];
-for (let i = 0; i < produitenregistredanslocalstorage.length; i++) {
-    let produitId = produitenregistredanslocalstorage[i].id_produit;
+for (let i = 0; i < prodAddLstorage.length; i++) {
+    let produitId = prodAddLstorage[i].id_produit;
     //Mettre les id recuprer dans le tableau/variable "produitIdCommande"
     produitIdCommande.push(produitId);
     

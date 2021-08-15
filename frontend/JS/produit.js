@@ -67,15 +67,15 @@ const btn_envoyerpanier = document.querySelector("#leproduit button");
 //
 //---------------Stocker la récupération des valeur de la ficheproduit dans le local storage----
 
-//Delcaration de la variable "produitenregistredanslocalstorage" dans laquelle on trouve les key/value qui sont dans le localstorage.
+//Delcaration de la variable "prodAddLstorage" dans laquelle on trouve les key/value qui sont dans le localstorage.
 //++JSON.parse convertie les données au format JSON qui sont dans le local storage en objet JS.
-let produitenregistredanslocalstorage =  JSON.parse(localStorage.getItem("danspanier"))
+let prodAddLstorage =  JSON.parse(localStorage.getItem("danspanier"))
 
 //fonction ajouter le produit au panier/Localstorage
 const ajoutleproduitlocalstorage = () => {
-    produitenregistredanslocalstorage.push(ficheproduit);
+    prodAddLstorage.push(ficheproduit);
 //++JSON.stringify convertie les données format JS en format JSON
-    localStorage.setItem("danspanier",JSON.stringify(produitenregistredanslocalstorage));
+    localStorage.setItem("danspanier",JSON.stringify(prodAddLstorage));
 }
 
 //fonction pour aller au panier ou rester sur la page après l'ajout au panier.
@@ -89,17 +89,17 @@ const popapresachat = () =>{
 }
 
 //s'il y a déjà des produits d'enregistré dans le LocalS.
-    if (produitenregistredanslocalstorage) {
+    if (prodAddLstorage) {
         ajoutleproduitlocalstorage();
         popapresachat();
-        console.log(produitenregistredanslocalstorage);
+        console.log(prodAddLstorage);
 } 
 //s'il n'y a pas du tout de produit enregistré dans le LocalS.
     else {
-        produitenregistredanslocalstorage = [];
+        prodAddLstorage = [];
         ajoutleproduitlocalstorage();
         popapresachat();
-        console.log(produitenregistredanslocalstorage);
+        console.log(prodAddLstorage);
 
 }
 })

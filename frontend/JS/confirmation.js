@@ -10,7 +10,7 @@ document.querySelector("#idcommande").textContent = idCommande.orderId;
 const contenuHtml = document.querySelector("#listecommande")
 
 
-let lesproduits= bilanCommande.produitenregistredanslocalstorage;
+let lesproduits= bilanCommande.prodAddLstorage;
 
 
 
@@ -20,5 +20,5 @@ for (let i = 0; i < lesproduits.length; i++) {
 }
 
 contenuHtml.innerHTML += `
-<p>Prix total de la commande: ${bilanCommande.prixtotal}€</p>`
+<p>Prix total de la commande: ${bilanCommande.prixtotal} €</p>`
 
